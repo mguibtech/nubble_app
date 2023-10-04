@@ -5,20 +5,14 @@ import {Text} from './src/components/Text/Text';
 function App(): JSX.Element {
   return (
     <SafeAreaView>
-      <Text preset="headingLarge" style={{color: 'red'}}>
+      <Text preset="headingLarge" italic>
         Testando
       </Text>
-      <Text
-        preset="headingLarge"
-        style={{color: 'red', fontFamily: 'Stardom-Regular'}}>
+      <Text preset="headingLarge" semiBold>
         Testando
       </Text>
 
-      <Text
-        preset="headingLarge"
-        style={{color: 'red', fontFamily: 'Satoshi-Italic'}}>
-        Testando
-      </Text>
+      <Text preset="paragraphCaption">Testando</Text>
     </SafeAreaView>
   );
 }
