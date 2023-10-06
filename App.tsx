@@ -9,7 +9,12 @@ function App(): JSX.Element {
     <ThemeProvider theme={theme}>
       <SafeAreaView>
         <View style={{paddingHorizontal: 20}}>
-          <Button title="Login" />
+          <Button title="Login" mb="s10" />
+
+          <Button preset="outline" title="Outile" mb="s10" />
+          <Button preset="secondary" loading title="Primary" mb="s10" />
+
+          <Button title="Entrar" loading mb="s10" />
         </View>
       </SafeAreaView>
     </ThemeProvider>

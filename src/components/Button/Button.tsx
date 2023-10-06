@@ -1,28 +1,42 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
+import {ActivityIndicator} from '../ActivityIndicator/ActivityIndicator';
 import {Text} from '../Text/Text';
-import {useTheme} from '@shopify/restyle';
-import {Theme} from '../../theme/theme';
+import {TouchableOpacityBox, TouchableOpacityBoxProps} from '../Box/Box';
+import {buttonPressets} from './ButtonPressets';
 
-interface ButtonProps {
+export type ButtonPreset = 'primary' | 'outline' | 'secondary';
+
+interface ButtonProps extends TouchableOpacityBoxProps {
   title: string;
+  loading?: boolean;
+  preset?: ButtonPreset;
 }
 
-export function Button({title}: ButtonProps) {
-  const {colors} = useTheme<Theme>();
+export function Button({
+  title,
+  loading,
+  preset = 'primary',
+  ...touchableOpacityBoxProps
+}: ButtonProps) {
+  const buttonPresset = buttonPressets[preset];
 
   return (
-    <TouchableOpacity
-      style={{
-        paddingHorizontal: 20,
-        paddingVertical: 14,
-        backgroundColor: colors.primary,
-        alignItems: 'center',
-        borderRadius: 16,
-      }}>
-      <Text preset="paragraphMedium" bold style={{color: '#fff'}}>
-        {title}
-      </Text>
-    </TouchableOpacity>
+    <TouchableOpacityBox
+      // backgroundColor="buttonPrimary"
+      paddingHorizontal="s20"
+      height={50}
+      alignItems="center"
+      justifyContent="center"
+      borderRadius="s16"
+      {...buttonPresset.container}
+      {...touchableOpacityBoxProps}>
+      {loading ? (
+        <ActivityIndicator color={buttonPresset.content} />
+      ) : (
+        <Text preset="paragraphMedium" bold color={buttonPresset.content}>
+          {title}
+        </Text>
+      )}
+    </TouchableOpacityBox>
   );
 }
