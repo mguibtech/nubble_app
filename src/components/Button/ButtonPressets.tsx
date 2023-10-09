@@ -1,7 +1,7 @@
 import {Theemecolors} from '../../theme/theme';
 import {TouchableOpacityBoxProps} from '../Box/Box';
 
-export type ButtonPreset = 'primary' | 'outline' | 'secondary';
+export type ButtonPreset = 'primary' | 'outline';
 
 interface ButtonUI {
   container: TouchableOpacityBoxProps;
@@ -9,24 +9,41 @@ interface ButtonUI {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const buttonPressets: Record<ButtonPreset, ButtonUI> = {
+export const buttonPressets: Record<
+  ButtonPreset,
+  {
+    default: ButtonUI;
+    disabled: ButtonUI;
+  }
+> = {
   primary: {
-    container: {
-      backgroundColor: 'primary',
+    default: {
+      container: {
+        backgroundColor: 'primary',
+      },
+      content: 'primaryContrast',
     },
-    content: 'primaryContrast',
+    disabled: {
+      container: {
+        backgroundColor: 'gray4',
+      },
+      content: 'gray2',
+    },
   },
   outline: {
-    container: {
-      borderWidth: 1,
-      borderColor: 'primary',
+    default: {
+      container: {
+        borderWidth: 1,
+        borderColor: 'primary',
+      },
+      content: 'primary',
     },
-    content: 'primary',
-  },
-  secondary: {
-    container: {
-      backgroundColor: 'carrotSecondary',
+    disabled: {
+      container: {
+        borderWidth: 1,
+        borderColor: 'gray4',
+      },
+      content: 'gray2',
     },
-    content: 'primaryContrast',
   },
 };
