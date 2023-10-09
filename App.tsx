@@ -6,6 +6,7 @@ import {Text} from './src/components/Text/Text';
 import {Box} from './src/components/Box/Box';
 import {Button} from './src/components/Button/Button';
 import {TextInput} from './src/components/TextInput/TextInput';
+import {Icon} from './src/components/Icon/Icon';
 
 function App(): JSX.Element {
   return (
@@ -23,7 +24,12 @@ function App(): JSX.Element {
             <TextInput label="Email" placeholder="Digite seu e-mail" />
           </Box>
           <Box>
-            <TextInput errorMessage="Messagem de erro" label="Senha" placeholder="Digite sua senha" />
+            <TextInput
+              errorMessage="Messagem de erro"
+              label="Senha"
+              placeholder="Digite sua senha"
+              rightComponent={<Icon color="gray2" name="eyeOn" />}
+            />
           </Box>
           <Text preset="paragraphSmall" bold color="primary" mt="s10">
             Esqueci minha senha
