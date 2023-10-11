@@ -2,11 +2,14 @@ import React from 'react';
 import {Screen} from '../../../components/Screen/Screen';
 import {Text} from '../../../components/Text/Text';
 import {TextInput} from '../../../components/TextInput/TextInput';
-import {Icon} from '../../../components/Icon/Icon';
 import {Button} from '../../../components/Button/Button';
 import {PasswordInput} from '../../../components/PasswordInput/PasswordInput';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../../routes/Routes';
 
-export function SingnUpScreen() {
+type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
+
+export function SignUpScreen({navigation}: ScreenProps) {
   function handleSubmitForm() {
     // TODO:
   }
