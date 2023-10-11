@@ -4,6 +4,7 @@ import {TextInput} from '../../../components/TextInput/TextInput';
 import {Icon} from '../../../components/Icon/Icon';
 import {Button} from '../../../components/Button/Button';
 import {Screen} from '../../../components/Screen/Screen';
+import {PasswordInput} from '../../../components/PasswordInput/PasswordInput';
 
 export function LoginScreen() {
   return (
@@ -20,12 +21,10 @@ export function LoginScreen() {
         placeholder="Digite seu e-mail"
         boxProps={{mb: 's20'}}
       />
-      <TextInput
-        errorMessage="Messagem de erro"
+      <PasswordInput
         label="Senha"
         placeholder="Digite sua senha"
         boxProps={{mb: 's10'}}
-        rightComponent={<Icon color="gray2" name="eyeOn" />}
       />
       <Text preset="paragraphSmall" bold color="primary">
         Esqueci minha senha
