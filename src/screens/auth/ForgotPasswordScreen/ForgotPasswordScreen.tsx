@@ -5,6 +5,7 @@ import {TextInput} from '../../../components/TextInput/TextInput';
 import {Button} from '../../../components/Button/Button';
 import {RootStackParamList} from '../../../routes/Routes';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {useResetNavigationSuccess} from '../../../hooks/useResetNavigationSuccess';
 
 type ScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -12,9 +13,10 @@ type ScreenProps = NativeStackScreenProps<
 >;
 
 export function ForgotPasswordScreen({navigation}: ScreenProps) {
+  const {reset} = useResetNavigationSuccess();
   function handleSubmitForm() {
-    navigation.navigate('SuccessScreen', {
-      title: `Enviamos as instruções para seu ${'\n'}e-mail`,
+    reset({
+      title: `Enviamos as instruções para seu e-mail`,
       description:
         'Clique no link enviado no seu e-mail para recuperar sua senha',
       icon: {
@@ -22,6 +24,16 @@ export function ForgotPasswordScreen({navigation}: ScreenProps) {
         color: 'primary',
       },
     });
+
+    // navigation.navigate('SuccessScreen', {
+    //   title: `Enviamos as instruções para seu e-mail`,
+    //   description:
+    //     'Clique no link enviado no seu e-mail para recuperar sua senha',
+    //   icon: {
+    //     name: 'messageRoundIcon',
+    //     color: 'primary',
+    //   },
+    // });
     //TODO: handleß
   }
   return (

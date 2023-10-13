@@ -10,12 +10,13 @@ type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SuccessScreen'>;
 
 export function SuccessScreen({navigation, route}: ScreenProps) {
   function goBackToBegin() {
+    navigation.goBack();
     //TODO: thisNavegar para tela inicial
   }
 
   return (
     <Screen>
-      <Icon {...route.params.icon}/>
+      <Icon {...route.params.icon} />
       <Text preset="headingLarge" mt="s24">
         {route.params.title}
       </Text>
