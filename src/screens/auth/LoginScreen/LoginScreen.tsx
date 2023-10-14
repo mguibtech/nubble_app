@@ -34,7 +34,7 @@ export function LoginScreen({navigation}: ScreenProps) {
   }
 
   function submitForm({email, password}: LoginFormType) {
-    console.log('Submit');
+    // console.log('Submit');
     //TODO: Realizar chamada a API
     Alert.alert(`Email: ${email} ${'\n'} Senha: ${password}`);
   }
@@ -78,7 +78,7 @@ export function LoginScreen({navigation}: ScreenProps) {
           minLength: {
             value: 8,
             message: 'Senha deve ter no minimo 8 caracters',
-          }
+          },
         }}
         render={({field, fieldState}) => (
           <PasswordInput
