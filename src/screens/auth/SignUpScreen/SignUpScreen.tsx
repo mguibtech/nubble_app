@@ -8,6 +8,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../routes/Routes';
 import {useResetNavigationSuccess} from '../../../hooks/useResetNavigationSuccess';
 import {Controller, useForm} from 'react-hook-form';
+import {FormTextInput} from '../../../components/Form/FormTextInput';
 
 type SignUpFormType = {
   username: string;
@@ -31,7 +32,7 @@ export function SignUpScreen({navigation}: ScreenProps) {
   });
 
   function handleSubmitForm(formVlues: SignUpFormType) {
-    console.log(formVlues)
+    console.log(formVlues);
     // reset({
     //   title: 'Sua conta foi criada com sucesso!',
     //   description: 'Agora e so fazer login na nossa plataformato',
@@ -48,7 +49,16 @@ export function SignUpScreen({navigation}: ScreenProps) {
         Criar uma conta
       </Text>
 
-      <Controller
+      <FormTextInput
+        control={control}
+        name="username"
+        rules={{required: 'Usarname obrigatorio'}}
+        label="Seu username"
+        placeholder="@"
+        boxProps={{mb: 's20'}}
+      />
+
+      {/* <Controller
         control={control}
         name="username"
         rules={{required: 'Usarname obrigatorio'}}
@@ -62,7 +72,7 @@ export function SignUpScreen({navigation}: ScreenProps) {
             boxProps={{mb: 's20'}}
           />
         )}
-      />
+      /> */}
 
       <Controller
         control={control}
